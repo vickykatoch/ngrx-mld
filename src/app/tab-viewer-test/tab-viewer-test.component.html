@@ -1,0 +1,8 @@
+
+<tab-viewer (tabClosed)="onTabClosed($event)">
+  <tab *ngFor="let employee of employees" [header]="employee.name" [model]="employee">
+    Hi {{employee.name}}
+  </tab>
+  <!--<tab [header]="'Tab 1'">Tab 1 Content</tab>
+  <tab header="Wonderful tab scenario ad de zenaro" active="true">Tab 2 Content</tab>-->
+</tab-viewer>

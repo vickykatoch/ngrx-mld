@@ -1,0 +1,68 @@
+.tab-viewer {
+      display: block;
+      overflow-x: auto;
+      width: 100%;
+      ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                  float: left;
+                  position: relative;
+                  border: 1px solid #bbb;
+                  border-bottom-width: 0;
+                  margin: 0;
+                  a {
+                        text-decoration: none;
+                        display: block;
+                        cursor: pointer;
+                        background: #eee;
+                        padding: 0.24em .5em;
+                        color: #00c;
+                        width: 8em;
+                        text-align: left;
+                        span {
+                              overflow : hidden;
+                              text-overflow: ellipsis;
+                              display: -webkit-box;
+                              -webkit-line-clamp: 1;
+                              -webkit-box-orient: vertical;
+                        }
+                  }
+                  .close-icon {
+                        position: absolute;
+                        display: none;
+                        padding: 0;
+                        cursor: pointer;
+                        background: 0 0;
+                        border: 0;
+                        -webkit-appearance: none;
+                        right: 4px;
+                        top: -4px;
+                        font-size: 1.2em;
+                  }
+                  &:hover .close-icon {
+                        display: inline;
+                  }
+            }
+            li.selected {
+                  border-color: #000;
+                  a {
+                        position: relative;
+                        top: 1px;
+                        color:green;
+                        background: white;
+                        font-weight: bold;
+                  }
+                  .close-icon {
+                        display: inline;
+                  }
+            }
+            
+      }
+}
+.tab-viewer-content {
+      border: 1px solid black;
+      clear: both;
+      padding: 0 1em;
+}
