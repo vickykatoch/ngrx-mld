@@ -90,6 +90,10 @@
       .scroller {
             width : 20px;
             text-align: center;
+            opacity: 0.5;
+            &:hover{
+                  opacity: 1.0;
+            }
       }
       
       .tab-container {
@@ -123,7 +127,7 @@
                   }
                   .close-icon {
                         display: none;
-                        margin-left: 5px;
+                        margin-left: 3px;
                         padding-right: 3px;
                         opacity: 0.5;
                         &:hover{
@@ -139,6 +143,9 @@
                   .close-icon {
                         display: inline;
                   }
+            }
+            div:last-child {
+                  padding-right:20px;
             }
       }
 }

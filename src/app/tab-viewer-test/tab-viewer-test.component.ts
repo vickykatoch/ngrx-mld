@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Employee } from './employee';
 
 @Component({
@@ -7,6 +7,8 @@ import { Employee } from './employee';
   styleUrls: ['./tab-viewer-test.component.scss']
 })
 export class TabViewerTestComponent implements OnInit {
+
+
   employees : Employee[] = [];
   constructor() { 
     this.employees = [

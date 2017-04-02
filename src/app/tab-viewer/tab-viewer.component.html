@@ -1,14 +1,15 @@
 <div class="tab-viewer">
-      <div class="scroller">
+      <!--<div class="scroller" (click)="scrollLeft()" (mouseenter)="scrollSlow('left')" (mouseleave)="">-->
+      <div class="scroller" (click)="scrollLeft()">
             <i class="fa fa-caret-left fa-2x"></i>
       </div>      
-      <div class="tab-container">
+      <div class="tab-container" #tabHost>
             <div *ngFor="let tab of tabs" [class.selected]="tab.active" (click)="selectTab(tab)">
                   <a href="#" [title]="tab.header" >{{tab.header}}</a>
                   <span class="close-icon" (click)="closeTab(tab)">&times;</span>
             </div>
       </div>
-      <div class="scroller">
+      <div class="scroller" (click)="scrollRight()">
             <i class="fa fa-caret-right fa-2x"></i>
       </div>      
 </div>
