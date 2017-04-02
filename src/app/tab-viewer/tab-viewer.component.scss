@@ -6,8 +6,10 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            white-space:nowrap;
             li {
-                  float: left;
+                  // float: left;
+                  display: inline-block;
                   position: relative;
                   border: 1px solid #bbb;
                   border-bottom-width: 0;
@@ -37,8 +39,8 @@
                         background: 0 0;
                         border: 0;
                         -webkit-appearance: none;
-                        right: 4px;
-                        top: -4px;
+                        right: 2px;
+                        top: 0;
                         font-size: 1.2em;
                   }
                   &:hover .close-icon {

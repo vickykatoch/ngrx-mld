@@ -25,6 +25,15 @@ export class TabViewerTestComponent implements OnInit {
       {
         id: 4,
         name : 'Mrundang Mazumdar'
+      },{
+        id: 5,
+        name : 'Sundar Nalli'
+      },{
+        id: 6,
+        name : 'Nirmal Patel'
+      },{
+        id: 7,
+        name : 'Amit Kaistha'
       }
 
     ];

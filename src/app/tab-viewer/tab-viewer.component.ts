@@ -5,8 +5,8 @@ import { TabItemComponent } from "./tab-item";
   selector: 'tab-viewer',
   styleUrls: ['./tab-viewer.component.scss'],
   template : `
-    <div class="tab-viewer">
-          <ul>
+    <div class="tab-viewer" #container>
+          <ul #host>
             <li *ngFor="let tab of tabs" [class.selected]="tab.active" (click)="selectTab(tab)">
               <a href="#">
                 <span [title]="tab.header">{{tab.header}}</span>
