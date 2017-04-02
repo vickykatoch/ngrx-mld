@@ -4,21 +4,7 @@ import { TabItemComponent } from "./tab-item";
 @Component({
   selector: 'tab-viewer',
   styleUrls: ['./tab-viewer.component.scss'],
-  template : `
-    <div class="tab-viewer" #container>
-          <ul #host>
-            <li *ngFor="let tab of tabs" [class.selected]="tab.active" (click)="selectTab(tab)">
-              <a href="#">
-                <span [title]="tab.header">{{tab.header}}</span>
-              </a>
-              <span class="close-icon" (click)="closeTab(tab)">&times;</span>
-            </li>
-          </ul>
-    </div>
-    <section class="tab-viewer-content">
-          <ng-content></ng-content>
-    </section>
-  `
+  templateUrl : './tab-viewer.component.html'
 })
 export class TabViewerComponent implements AfterContentInit {
   @ContentChildren(TabItemComponent) tabs : QueryList<TabItemComponent>;
@@ -44,3 +30,21 @@ export class TabViewerComponent implements AfterContentInit {
     this.tabClosed.next(tab.model);
   }
 }
+
+/*
+template : `
+    <div class="tab-viewer" #container>
+          <ul #host>
+            <li *ngFor="let tab of tabs" [class.selected]="tab.active" (click)="selectTab(tab)">
+              <a href="#">
+                <span [title]="tab.header">{{tab.header}}</span>
+              </a>
+              <span class="close-icon" (click)="closeTab(tab)">&times;</span>
+            </li>
+          </ul>
+    </div>
+    <section class="tab-viewer-content">
+          <ng-content></ng-content>
+    </section>
+  `
+  */

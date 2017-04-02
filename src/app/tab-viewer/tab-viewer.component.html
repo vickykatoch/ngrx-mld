@@ -1,0 +1,17 @@
+<div class="tab-viewer">
+      <div class="scroller">
+            <i class="fa fa-caret-left fa-2x"></i>
+      </div>      
+      <div class="tab-container">
+            <div *ngFor="let tab of tabs" [class.selected]="tab.active" (click)="selectTab(tab)">
+                  <a href="#" [title]="tab.header" >{{tab.header}}</a>
+                  <span class="close-icon" (click)="closeTab(tab)">&times;</span>
+            </div>
+      </div>
+      <div class="scroller">
+            <i class="fa fa-caret-right fa-2x"></i>
+      </div>      
+</div>
+<section class="tab-viewer-content">
+          <ng-content></ng-content>
+    </section>
