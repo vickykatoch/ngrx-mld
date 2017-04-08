@@ -1,5 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Employee } from './employee';
+import { TabMenuItem } from "app/tab-viewer/menu";
+
+enum MenuIdentifier {
+  center=0,
+  settings,
+  searchInstrument
+}
 
 @Component({
   selector: 'tab-viewer-test',
@@ -7,7 +14,7 @@ import { Employee } from './employee';
   styleUrls: ['./tab-viewer-test.component.scss']
 })
 export class TabViewerTestComponent implements OnInit {
-
+  menuItems : TabMenuItem[] = [];
 
   employees : Employee[] = [];
   constructor() { 
@@ -39,6 +46,7 @@ export class TabViewerTestComponent implements OnInit {
       }
 
     ];
+    this.buildMenus();
   }
 
   ngOnInit() {
@@ -47,5 +55,22 @@ export class TabViewerTestComponent implements OnInit {
   onTabClosed(rowObject: Employee) : void {
     this.employees = this.employees.filter(e=> e.id!==rowObject.id);
     console.log(rowObject);
+  }
+  private buildMenus() {
+    this.menuItems.push({
+      id: MenuIdentifier.center,
+      label : 'Center',
+      iconClass:'fa-bullseye'
+    });
+    this.menuItems.push({
+      id: MenuIdentifier.center,
+      label : 'Settings...',
+      iconClass:'fa-sliders'
+    });
+    this.menuItems.push({
+      id: MenuIdentifier.center,
+      label : 'Search Instrument(s)...',
+      iconClass:'fa-search-plus'
+    });
   }
 }

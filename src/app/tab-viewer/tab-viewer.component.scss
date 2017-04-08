@@ -1,3 +1,132 @@
+$TAB_HEIGHT : 22px;
+
+.tab-viewer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      background: #000; //var(--table-cell-group-bg)
+      text-shadow: 1px rgba(0,0,0,0.3);
+      color : #fff;
+      font-size: 0.8em;
+
+      .scroller {
+            width:30px;
+            text-align: center;
+            border-left: 1px solid #000;
+            padding: 0 5px;
+            cursor: pointer;
+      }
+      .icon {
+            margin-top: 3px;
+            cursor: pointer;
+            opacity: 0.5;
+            font-size: 1.2em;
+            -webkit-user-select: none;
+            user-select: none;
+            &:hover{
+                  opacity: 1.0;
+            }            
+      }
+      .icon-bar {
+            position: relative;
+            &>i {
+                  @extend .icon;
+                  padding: 0 4px;
+                  text-align: center;
+            }
+            &>ul{
+                  display: none;
+                  padding: 0;
+                  background: #000; //var(--table-cell-group-bg);
+                  list-style-type: none;
+                  position: absolute;
+                  top: 7px;
+                  right:0;
+                  z-index: 100;
+                  width: 200px;
+                  li{
+                        padding: 5px;
+                        cursor: pointer;
+                        color: #fff03c;
+                        border-bottom: 1px solid rgba(81,78,80, 0.67);
+                        opacity: 0.6;
+                        &:hover{
+                              opacity: 1.0;
+                              background: rgba(11,19,37,1);                              
+                        }
+                        &::last-child{
+                              border-bottom: 0;
+                        }
+                        i{
+                              padding: 0 7px;
+                        }
+                  }
+            }
+            &:hover > ul {
+                  display: block !important;
+            }
+      }
+      .tab-container {
+            flex: 1 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            height: $TAB_HEIGHT;
+            padding-right: 17px;
+            div{
+                  display: inline-block;
+                  cursor: pointer;
+                  border-right: 1px solid #000;
+                  height: $TAB_HEIGHT;
+                  &:hover{
+                        background: #0275d8;
+                  }
+                  &:hover .close-icon {
+                        display: inline;
+                  }
+                  &:hover label{
+                        opacity: 1.0;
+                  }
+                  label {
+                        line-height: $TAB_HEIGHT;
+                        padding: 0 5px;
+                        cursor: pointer;
+                        color: #fff;
+                        opacity: 0.6;
+                        text-align: left;
+                  }
+                  .close-icon{
+                        display: none;
+                        padding: 0 3px;
+                        opacity: 0.5;
+                        font-size: 1.2em;
+                        &:hover {
+                              opacity: 1.0;
+                        }
+                  }
+            }
+            div.selected{
+                  background: #0275d8;
+                  label {
+                        opacity: 1.0;
+                  }
+                  .close-icon{
+                        display: inline;
+                  }
+            }
+            div:last-child{
+                  border-right: 0;
+            }
+            .menu-icon{
+                  padding: 0 3px;
+            }
+      }
+}
+.tab-viewer-content {
+      border: 1px solid black;
+      clear: both;
+      padding: 0 1em;
+}
 /*
 .tab-viewer {
       display: block;
@@ -69,7 +198,7 @@
       clear: both;
       padding: 0 1em;
 }
-*/
+
 
 .tab-viewer {
       display: flex;
@@ -155,4 +284,4 @@
       border: 1px solid black;
       clear: both;
       padding: 0 1em;
-}
+}*/

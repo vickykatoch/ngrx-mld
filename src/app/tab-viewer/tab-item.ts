@@ -10,7 +10,8 @@ import { Component, Input } from '@angular/core';
       `
 })
 export class TabItemComponent {
-      @Input() header: string;
-      @Input() active : boolean = false;
-      @Input() model : any;
+      @Input() header               : string;
+      @Input() active               : boolean = false;
+      @Input() model                : any;
+      @Input() isClosable           : any;
 }

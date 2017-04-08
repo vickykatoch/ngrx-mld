@@ -1,18 +1,25 @@
-<div class="tab-viewer">
-      <!--<div class="scroller" (click)="scrollLeft()" (mouseenter)="scrollSlow('left')" (mouseleave)="">-->
-      <div class="scroller" (click)="scrollLeft()">
-            <i class="fa fa-caret-left fa-2x"></i>
-      </div>      
+<div class="tab-viewer" (mouseover)="onAdjustScroller()">
+     
       <div class="tab-container" #tabHost>
             <div *ngFor="let tab of tabs" [class.selected]="tab.active" (click)="selectTab(tab)">
-                  <a href="#" [title]="tab.header" >{{tab.header}}</a>
-                  <span class="close-icon" (click)="closeTab(tab)">&times;</span>
+                  <label [title]="tab.header">{{tab.header}}</label>
+                  <span class="close-icon" (click)="closeTab(tab)" [hidden]="!tab.isClosable">&times;</span>
             </div>
       </div>
-      <div class="scroller" (click)="scrollRight()">
-            <i class="fa fa-caret-right fa-2x"></i>
-      </div>      
+      <div class="scroller" [hidden]="isScrollerVisible">
+            <i class="fa fa-caret-left icon"></i>
+            <i class="fa fa-caret-right icon"></i>
+      </div>
+      <div class="icon-bar" *ngIf="menuItems && menuItems.length>0">
+            <i class="fa fa-bars"></i>
+            <ul>
+                  <li *ngFor="let menuItem of menuItems" (click)="onMenuItemClicked(menuItem)">
+                        <i class="fa menu-icon" [ngClass]="menuItem?.iconClass" *ngIf="menuItem?.iconClass"></i>
+                        {{menuItem.label}}
+                  </li>
+            </ul>
+      </div>
 </div>
 <section class="tab-viewer-content">
-          <ng-content></ng-content>
-    </section>
+      <ng-content></ng-content>
+</section>
