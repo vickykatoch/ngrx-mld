@@ -15,8 +15,9 @@ enum MenuIdentifier {
 })
 export class TabViewerTestComponent implements OnInit {
   menuItems : TabMenuItem[] = [];
-
+  current : Employee=null;
   employees : Employee[] = [];
+
   constructor() { 
     this.employees = [
       {
@@ -47,14 +48,18 @@ export class TabViewerTestComponent implements OnInit {
 
     ];
     this.buildMenus();
+    this.current = this.employees[6];
   }
 
   ngOnInit() {
   }
-
+  
   onTabClosed(rowObject: Employee) : void {
     this.employees = this.employees.filter(e=> e.id!==rowObject.id);
     console.log(rowObject);
+  }
+  onTabSelected(emp: Employee) {
+    this.current=emp;
   }
   private buildMenus() {
     this.menuItems.push({

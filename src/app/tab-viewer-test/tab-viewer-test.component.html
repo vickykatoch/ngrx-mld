@@ -1,6 +1,10 @@
 
-<tab-viewer (tabClosed)="onTabClosed($event)">
-  <tab *ngFor="let employee of employees" [header]="employee.name" [model]="employee" [isClosable]="true">
+<tab-viewer (tabClosed)="onTabClosed($event)" [menuItems]="menuItems" (tabSelecetd)="onTabSelected($event)">
+  <tab *ngFor="let employee of employees" 
+  [header]="employee.name" 
+  [model]="employee" 
+  [active] = "current.id === employee.id"
+    [isClosable]="true">
     Hi {{employee.name}}
   </tab>
 </tab-viewer>
